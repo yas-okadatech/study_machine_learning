@@ -2,7 +2,7 @@ import scipy as sp
 import matplotlib.pyplot as plt
 
 def error(f, x, y):
-  return sp.sum((f(x)-y)**2)
+  return sp.sum((f(x) - y) ** 2)
 
 data = sp.genfromtxt('data/web_traffic.tsv', delimiter="\t")
 print(data[:10])
@@ -32,8 +32,20 @@ print(error(f1, x, y))
 
 fx = sp.linspace(0, x[-1], 1000)
 plt.plot(fx, f1(fx), linewidth = 4)
-plt.legend(['d=%i' % f1.order], loc = 'upper left')
 
+# curve_fitting (d=2)
+fp2 = sp.polyfit(x, y, 2)
+print(fp2)
+f2 = sp.poly1d(fp2)
+print(error(f2, x, y))
+
+plt.plot(fx, f2(fx), linewidth = 4)
+
+legends = [
+    'd=%i' % f1.order,
+    'd=%i' % f2.order,
+]
+plt.legend(legends, loc = 'upper left')
 
 plt.autoscale(tight=True)
 plt.grid()
