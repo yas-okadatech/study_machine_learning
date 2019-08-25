@@ -6,7 +6,7 @@
 python3 -m venv venv
 ```
 
-### install SciPy (and NumPy)
+### install SciPy, NumPy, matplotlib
 
 ```
 python -m pip install numpy scipy matplotlib ipython jupyter pandas sympy nose
