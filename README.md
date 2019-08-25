@@ -17,3 +17,7 @@ python -m pip install numpy scipy matplotlib ipython jupyter pandas sympy nose
 ```
 . venv/bin/activate
 ```
+
+## references 
+
+- https://github.com/wrichert/BuildingMachineLearningSystemsWithPython
