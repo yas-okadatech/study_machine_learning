@@ -41,9 +41,36 @@ print(error(f2, x, y))
 
 plt.plot(fx, f2(fx), linewidth = 4)
 
+# curve_fitting (d=3)
+fp3 = sp.polyfit(x, y, 3)
+print(fp3)
+f3 = sp.poly1d(fp3)
+print(error(f3, x, y))
+
+plt.plot(fx, f3(fx), linewidth = 4)
+
+# curve_fitting (d=10)
+fp10 = sp.polyfit(x, y, 10)
+print(fp10)
+f10 = sp.poly1d(fp10)
+print(error(f10, x, y))
+
+plt.plot(fx, f10(fx), linewidth = 4)
+
+# curve_fitting (d=100)
+fp100 = sp.polyfit(x, y, 100)
+print(fp100)
+f100 = sp.poly1d(fp100)
+print(error(f100, x, y))
+
+plt.plot(fx, f100(fx), linewidth = 4)
+
 legends = [
     'd=%i' % f1.order,
     'd=%i' % f2.order,
+    'd=%i' % f3.order,
+    'd=%i' % f10.order,
+    'd=%i' % f100.order,
 ]
 plt.legend(legends, loc = 'upper left')
 
