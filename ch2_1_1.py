@@ -21,5 +21,6 @@ for t,marker,c in zip(range(3),'>ox','rgb'):
               features[target == t,1],
               marker=marker,
               c=c)
+  print('marker: %s, target_name: %s' % (marker, target_names[t]))
 
 plt.show()
