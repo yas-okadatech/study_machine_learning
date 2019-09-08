@@ -11,3 +11,9 @@ def nn_classify(training_set, training_labels, new_example):
   nearest = dists.argmin() # 最小要素のindex
   return training_labels[nearest]
 
+# Zスコア (最近近傍法)
+#  平均からどれだけ離れているか
+#  0: 平均値、+: 平均より上、 -: 平均より下
+features = np.array()
+features -= features.mean(axis=0) # 平均値を引く
+features /= features.std(axis=0) # 標準偏差で割る
