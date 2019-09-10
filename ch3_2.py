@@ -14,3 +14,9 @@ posts = [open (os.path.join(DIR,f)).read() for f in sorted(os.listdir(DIR))]
 X_train = vectorizer.fit_transform(posts)
 num_samples, num_features = X_train.shape
 print('#samples: %d, #features: %d' % (num_samples, num_features))
+print(vectorizer.get_feature_names())
+
+new_post = 'imaging databases'
+new_post_vec = vectorizer.transform([new_post])
+print(new_post_vec)
+print(new_post_vec.toarray())
