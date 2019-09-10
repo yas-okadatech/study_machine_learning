@@ -11,4 +11,6 @@ print( x.toarray().transpose()) #　表3-1と同じ。[文章1の出現回数, �
 
 DIR = './data/ch3'
 posts = [open (os.path.join(DIR,f)).read() for f in sorted(os.listdir(DIR))]
-X_train = 
+X_train = vectorizer.fit_transform(posts)
+num_samples, num_features = X_train.shape
+print('#samples: %d, #features: %d' % (num_samples, num_features))
