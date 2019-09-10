@@ -1,4 +1,7 @@
 import os
+import sys
+import scipy as sp
+import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 vectorizer = CountVectorizer(min_df=1)
 
@@ -20,3 +23,18 @@ new_post = 'imaging databases'
 new_post_vec = vectorizer.transform([new_post])
 print(new_post_vec)
 print(new_post_vec.toarray())
+
+def dist_raw(v1, v2):
+  delta = v1-v2
+  return sp.linalg.norm(delta.toarray())
+
+best_doc = None
+best_dist = sys.maxint
+best_i = None
+for i in range(0, num_samples):
+  post = posts[i]
+  if post==new_post:
+    continue
+  post_vec = X_train.get_row(i)
+  d = dist_raw(post_vec, new_post_vec)
+  print('=== Post %i with dist=%.2f: %s' % (i, d, post))
