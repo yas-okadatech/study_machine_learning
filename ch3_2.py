@@ -29,12 +29,15 @@ def dist_raw(v1, v2):
   return sp.linalg.norm(delta.toarray())
 
 best_doc = None
-best_dist = sys.maxint
+best_dist = sys.maxsize
 best_i = None
 for i in range(0, num_samples):
   post = posts[i]
   if post==new_post:
     continue
-  post_vec = X_train.get_row(i)
+  post_vec = X_train.getrow(i)
   d = dist_raw(post_vec, new_post_vec)
   print('=== Post %i with dist=%.2f: %s' % (i, d, post))
+
+print(X_train.getrow(3).toarray())
+print(X_train.getrow(4).toarray())
