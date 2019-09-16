@@ -3,7 +3,7 @@ import sys
 import scipy as sp
 import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
-vectorizer = CountVectorizer(min_df=1)
+vectorizer = CountVectorizer(min_df=1, stop_words='english')
 
 # print(vectorizer)
 
@@ -52,3 +52,6 @@ print('Best post is %i with dist=%.2f' % (best_i, best_dist))
 
 print(X_train.getrow(3).toarray())
 print(X_train.getrow(4).toarray())
+
+## stop words
+print(sorted(vectorizer.get_stop_words())[0:20])
